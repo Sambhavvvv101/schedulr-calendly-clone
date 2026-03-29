@@ -89,3 +89,14 @@ export const deleteEventType = async (id) => {
 
   return res.json();
 };
+
+// ===== CANCEL MEETING =====
+export const cancelMeeting = async (id) => {
+  const res = await fetch(`${BASE_URL}/meetings/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) throw new Error("Failed to cancel meeting");
+
+  return res.json();
+};
