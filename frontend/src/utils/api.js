@@ -28,6 +28,7 @@ export const updateAvailability = async (data) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
+  if (!res.ok) throw new Error("Failed to update availability");
   return res.json();
 };
 
@@ -45,8 +46,6 @@ export const confirmBooking = async (data) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-
   if (!res.ok) throw new Error("Failed to confirm booking");
-
   return res.json();
 };
