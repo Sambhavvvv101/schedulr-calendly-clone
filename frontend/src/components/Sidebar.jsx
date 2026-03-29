@@ -60,7 +60,7 @@ export default function Sidebar({ page, setPage }) {
       <div className="sidebar-footer">
         <div className="user-card">
           <img 
-            src="https://ui-avatars.com/api/?name=SB&background=6366f1&color=fff" 
+            src="https://ui-avatars.comhttps://schedulr-backend-e8nt.onrender.com/?name=SB&background=6366f1&color=fff" 
             alt="avatar"
             className="avatar"
           />

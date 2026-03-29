@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getMeetings, getEventTypes } from '../utils/api';
+import { getMeetings, getEventTypes } from '../utilshttps://schedulr-backend-e8nt.onrender.com';
 import { Icon } from '../components/Icons';
 import { fmtTime, fmtShortDate, MONTHS } from '../utils/dateUtils';
 

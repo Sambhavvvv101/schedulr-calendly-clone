@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getEventTypes, createEventType, updateEventType, deleteEventType } from '../utils/api';
+import { getEventTypes, createEventType, updateEventType, deleteEventType } from '../utilshttps://schedulr-backend-e8nt.onrender.com';
 import { useApp } from '../context/AppContext';
 import { Icon } from '../components/Icons';
 import EventTypeModal from '../components/EventTypeModal';

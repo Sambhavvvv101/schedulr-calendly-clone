@@ -1,30 +1,37 @@
-const BASE = '/api';
+const BASE_URL = "https://schedulr-backend-e8nt.onrender.com";
 
-async function request(path, options = {}) {
-  const res = await fetch(BASE + path, {
-    headers: { 'Content-Type': 'application/json' },
-    ...options,
+// Event Types
+export const getEventTypes = async () => {
+  const res = await fetch(`${BASE_URL}/api/event-types`);
+  return res.json();
+};
+
+// Availability
+export const getAvailability = async () => {
+  const res = await fetch(`${BASE_URL}/api/availability`);
+  return res.json();
+};
+
+export const updateAvailability = async (data) => {
+  const res = await fetch(`${BASE_URL}/api/availability`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Request failed');
-  return data;
-}
+  return res.json();
+};
 
-// ── Event Types ──────────────────────────────────────────
-export const getEventTypes    = ()           => request('/event-types');
-export const getEventBySlug   = (slug)       => request(`/event-types/slug/${slug}`);
-export const createEventType  = (body)       => request('/event-types', { method: 'POST', body: JSON.stringify(body) });
-export const updateEventType  = (id, body)   => request(`/event-types/${id}`, { method: 'PUT', body: JSON.stringify(body) });
-export const deleteEventType  = (id)         => request(`/event-types/${id}`, { method: 'DELETE' });
+// Bookings
+export const getBookings = async () => {
+  const res = await fetch(`${BASE_URL}/api/meetings`);
+  return res.json();
+};
 
-// ── Availability ─────────────────────────────────────────
-export const getAvailability    = ()         => request('/availability');
-export const updateAvailability = (body)     => request('/availability', { method: 'PUT', body: JSON.stringify(body) });
-
-// ── Meetings ─────────────────────────────────────────────
-export const getMeetings  = (status)         => request(`/meetings${status ? `?status=${status}` : ''}`);
-export const cancelMeeting = (id, body = {}) => request(`/meetings/${id}/cancel`, { method: 'PATCH', body: JSON.stringify(body) });
-
-// ── Public Booking ────────────────────────────────────────
-export const getSlots      = (slug, date)    => request(`/book/${slug}/slots?date=${date}`);
-export const confirmBooking = (slug, body)   => request(`/book/${slug}`, { method: 'POST', body: JSON.stringify(body) });
+export const createBooking = async (data) => {
+  const res = await fetch(`${BASE_URL}/api/book`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+};
