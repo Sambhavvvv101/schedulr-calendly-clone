@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAvailability, getSlots, confirmBooking } from '../utilshttps://schedulr-backend-e8nt.onrender.com';
+import { getAvailability, getSlots, confirmBooking } from '../utils/api';
 import { Icon } from '../components/Icons';
 import Calendar from '../components/Calendar';
 import { fmtTime, fmtDate, toYMD } from '../utils/dateUtils';

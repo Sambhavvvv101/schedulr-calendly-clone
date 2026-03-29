@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getMeetings, cancelMeeting } from '../utilshttps://schedulr-backend-e8nt.onrender.com';
+import { getMeetings, cancelMeeting } from '../utils/api';
 import { useApp } from '../context/AppContext';
 import { Icon } from '../components/Icons';
 import ConfirmModal from '../components/ConfirmModal';
