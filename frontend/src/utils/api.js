@@ -31,8 +31,15 @@ export const updateAvailability = async (data) => {
   return res.json();
 };
 
-// ===== CREATE BOOKING =====
-export const createBooking = async (data) => {
+// ===== GET SLOTS =====
+export const getSlots = async (date) => {
+  const res = await fetch(`${BASE_URL}/slots?date=${date}`);
+  if (!res.ok) throw new Error("Failed to fetch slots");
+  return res.json();
+};
+
+// ===== CONFIRM BOOKING =====
+export const confirmBooking = async (data) => {
   const res = await fetch(`${BASE_URL}/book`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
