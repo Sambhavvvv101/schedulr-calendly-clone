@@ -49,3 +49,34 @@ export const confirmBooking = async (data) => {
   if (!res.ok) throw new Error("Failed to confirm booking");
   return res.json();
 };
+
+// ===== CREATE EVENT TYPE =====
+export const createEventType = async (data) => {
+  const res = await fetch(`${BASE_URL}/event-types`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error("Failed to create event type");
+  return res.json();
+};
+
+// ===== UPDATE EVENT TYPE =====
+export const updateEventType = async (id, data) => {
+  const res = await fetch(`${BASE_URL}/event-types/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error("Failed to update event type");
+  return res.json();
+};
+
+// ===== DELETE EVENT TYPE =====
+export const deleteEventType = async (id) => {
+  const res = await fetch(`${BASE_URL}/event-types/${id}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error("Failed to delete event type");
+  return res.json();
+};
