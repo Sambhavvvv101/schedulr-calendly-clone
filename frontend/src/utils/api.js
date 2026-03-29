@@ -1,3 +1,4 @@
+const BASE_URL = "https://schedulr-backend-e8nt.onrender.com/api";
 // ===== MEETINGS =====
 export const getMeetings = async () => {
   const res = await fetch(`${BASE_URL}/meetings`);
